@@ -21,14 +21,14 @@ int findcol(int i,int j,char **str)
 	flag = 0;
 	while(x < 9)
 	{
-		if(str[i][j] == str[x][j]&& str[i][x] != '0' )
+		if(str[i][j] == str[x][j] && str[i][x] != '0' )
 			flag++;
 		x++;
 	}
 	if(flag > 1)
 	return (0);
 	flag = 0;
-	if(i <= 2 && j <= 2)
+	if(i >= 0 && i <= 2 && j >= 0 && j <= 2)
 	{
 		x = 0;
 		while(x <= 2)
@@ -36,7 +36,7 @@ int findcol(int i,int j,char **str)
 			y = 0;
 			while(y <= 2)
 			{
-				if(str[i][j] == str[x][y] && str[i][x] != '0')
+				if(str[i][j] == str[x][y] && str[x][y] != '0')
 				flag++;
 				y++;
 			}
@@ -45,7 +45,7 @@ int findcol(int i,int j,char **str)
 		if(flag > 1)
 		return (0);
 	}
-	if(i <= 2 && j >= 3 && j <= 5)
+	if(i <= 2 && i >= 0 && j >= 3 && j <= 5)
 	{
 		
 		x = 0;
@@ -54,7 +54,7 @@ int findcol(int i,int j,char **str)
                         y = 3;
                         while(y <= 5)
                         {
-                                if(str[i][j] == str[x][y] && str[i][x] != '0')
+                                if(str[i][j] == str[x][y] && str[x][y] != '0')
                                 flag++;
                                 y++;
                         }
@@ -63,7 +63,7 @@ int findcol(int i,int j,char **str)
                 if(flag > 1)
                 return (0);
         }
-	if(i <= 2 && j >= 6 && j <= 8)
+	if(i <= 2 && i>=0 && j >= 6 && j <= 8)
         {
         
                 x = 0;
@@ -72,7 +72,7 @@ int findcol(int i,int j,char **str)
                         y = 6;
                         while(y <= 8)
                         {
-                                if(str[i][j] == str[x][y] && str[i][x] != '0')
+                                if(str[i][j] == str[x][y] && str[x][y] != '0')
                                 flag++;
                                 y++;
                         }
@@ -81,7 +81,7 @@ int findcol(int i,int j,char **str)
                 if(flag > 1)
                 return (0);
         }
-	if(i >= 3 && i <=5 && j <=2)
+	if(i >= 3 && i <=5 && j <=2&& j >= 0)
         {
         
                 x = 3;
@@ -90,7 +90,7 @@ int findcol(int i,int j,char **str)
                         y = 0;
                         while(y <= 2)
                         {
-                                if(str[i][j] == str[x][y] && str[i][x] != '0')
+                                if(str[i][j] == str[x][y] && str[x][y] != '0')
                                 flag++;
                                 y++;
                         }
@@ -99,7 +99,7 @@ int findcol(int i,int j,char **str)
                 if(flag > 1)
                 return (0);
         }
-	 if(i >= 6 && i <= 8 && j <=2)
+	 if(i >= 6 && i <= 8 && j <=2 &&j >= 0)
         {
 
                 x = 6;
@@ -108,7 +108,7 @@ int findcol(int i,int j,char **str)
                         y = 0;
                         while(y <= 2)
                         {
-                                if(str[i][j] == str[x][y] && str[i][x] != '0')
+                                if(str[i][j] == str[x][y] && str[x][y] != '0')
                                 flag++;
                                 y++;
                         }
@@ -126,7 +126,7 @@ int findcol(int i,int j,char **str)
                         y = 3;
                         while(y <= 5)
                         {
-                                if(str[i][j] == str[x][y] && str[i][x] != '0')
+                                if(str[i][j] == str[x][y] && str[x][y] != '0')
                                 flag++;
                                 y++;
                         }
@@ -145,7 +145,7 @@ int findcol(int i,int j,char **str)
                         y = 3;
                         while(y <= 5)
                         {
-                                if(str[i][j] == str[x][y] && str[i][x] != '0')
+                                if(str[i][j] == str[x][y] && str[x][y] != '0')
                                 flag++;
                                 y++;
                         }
@@ -163,7 +163,7 @@ int findcol(int i,int j,char **str)
                         y = 6;
                         while(y <= 8)
                         {
-                                if(str[i][j] == str[x][y] && str[i][x] != '0')
+                                if(str[i][j] == str[x][y] && str[x][y] != '0')
                                 flag++;
                                 y++;
                         }
@@ -181,7 +181,7 @@ int findcol(int i,int j,char **str)
                         y = 6;
                         while(y <= 8)
                         {
-                                if(str[i][j] == str[x][y] && str[i][x] != '0')
+                                if(str[i][j] == str[x][y] && str[x][y] != '0')
                                 flag++;
                                 y++;
                         }
@@ -190,7 +190,8 @@ int findcol(int i,int j,char **str)
                 if(flag > 1)
                 return (0);
         }
-	return (2);
+	
+	 return (2);
 }
 
 
@@ -227,26 +228,39 @@ int     main(int argc,char **argv)
 		}
  	i++;
 	}
-	i = 0;	
-	while(i < 9)
+	i = 8;	
+	while(i >= 0)
 	{
-		j = 0;
-		while(j < 9)
+		j = 8;
+		while(j >= 0)
 		{
+			
 			if(str[i][j] == '0')
 			{
-				while(str[i][j] <= '9')
+				printf("i %i ",i);
+				printf("j %i ",j);
+				while(str[i][j] < '9')
 				{
+					
 					str[i][j]++;
+					printf("%i ",findcol(i,j,str));
 					if(findcol(i,j,str) == 2)
-					break;
-				}
-			}
-			j++;
-		}
-		i++;
-	}
+						break;
+					}
+				printf("%c  ",str[i][j]);
+				if(findcol(i,j,str) == 0)
+                                                printf("oshibka");
 
+
+			
+			}
+			j--;
+			printf("\n");
+		}
+		i--;
+		printf("\n");
+	}
+	
 
 
 
