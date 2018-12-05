@@ -33,7 +33,7 @@ int	main(int argv,char **argc)
 	return(0);
 	dlina = ft_strlen(argc[1]);
 	str=(char*)malloc(dlina*(sizeof(char)));
-	while(j < dlina -1 )
+	while(j < dlina  )
 	{
 			if((returnchar(argc[1][j]) == 1)&&(returnchar(argc[1][j+1]) == 0))
 			{
